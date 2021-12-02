@@ -1,6 +1,6 @@
 # Machine learning methods applied to genotyping data in late onset Alzheimer’s disease
 
-Python scripts used in the article: *Machine learning methods applied to genotyping data capture interactions between single nucleotide variants in late onset Alzheimer’s disease* 
+Python scripts used in the article: *Machine learning methods applied to genotyping data capture interactions between single nucleotide variants in late onset Alzheimer’s disease*
 
 Python 3.7.6 with Scikit-learn v0.22.1 module was used to build (train and test) the ML models. A train/test split was applied to have 80% of samples for training and 20% of samples for testing. Scripts are divided by the different ML methods used in the article:
 
