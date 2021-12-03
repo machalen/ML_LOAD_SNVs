@@ -22,20 +22,20 @@ The final model with the optimized parameters was trained on the original train 
 
 #### Python scripts to run 10 fold cross-validation with the 80% of samples in the training split:
 
-- \*\_DisGeNet_CV_Over.py : Oversampling to balance samples and AD SNVs as predictors
-- \*\_DisGeNet_CV_Under.py : Undersampling to balance samples and AD SNVs as predictors
-- \*\_refVars_CV_Over.py : Oversampling to balance samples and reference SNVs as predictors
-- \*\_refVars_CV_Under.py : Undersampling to balance samples and reference SNVs as predictors
+- **\*\_DisGeNet_CV_Over.py** : Oversampling to balance samples and AD SNVs as predictors
+- **\*\_DisGeNet_CV_Under.py** : Undersampling to balance samples and AD SNVs as predictors
+- **\*\_refVars_CV_Over.py** : Oversampling to balance samples and reference SNVs as predictors
+- **\*\_refVars_CV_Under.py** : Undersampling to balance samples and reference SNVs as predictors
 
 #### Python scripts to test the model with the 20% of samples in the testing split:
 
-- \*\_finalModel.py : Final model with the definitive parameters selected in the cross-validation step
+- **\*\_finalModel.py** : Final model with the definitive parameters selected in the cross-validation step
 
 #### Python scripts to test different combination of variants:
 
-- \*\_APOEvars_CV_Under.py: Undersampling to balance samples and use of variants *rs429358* and *rs7412* as predictors
-- \*\_6SNVs_CV_Under.py: Undersampling to balance samples and use of variants *rs429358*,*rs769449*, *rs4420638*,*rs405509*, *rs1160985* and *rs7412* as predictors
-- \*\_5SNVs_No_rs4420638_CV_Under.py: Undersampling to balance samples and use of variants *rs429358*, *rs769449*, *rs405509*, *rs1160985* and *rs7412* as predictors
-- \*\_5SNVs_No_rs769449_CV_Under.py: Undersampling to balance samples and use of variants *rs429358*, *rs4420638*,*rs405509*, *rs1160985* and *rs7412* as predictors
-- \*\_5SNVs_No_rs429358_CV_Under.py: Undersampling to balance samples and use of variants *rs769449*, *rs4420638*, *rs405509*, *rs1160985* and *rs7412* as predictors
+- **\*\_APOEvars_CV_Under.py** : Undersampling to balance samples and use of variants *rs429358* and *rs7412* as predictors
+- **\*\_6SNVs_CV_Under.py** : Undersampling to balance samples and use of variants *rs429358*,*rs769449*, *rs4420638*,*rs405509*, *rs1160985* and *rs7412* as predictors
+- **\*\_5SNVs_No_rs4420638_CV_Under.py** : Undersampling to balance samples and use of variants *rs429358*, *rs769449*, *rs405509*, *rs1160985* and *rs7412* as predictors
+- **\*\_5SNVs_No_rs769449_CV_Under.py** : Undersampling to balance samples and use of variants *rs429358*, *rs4420638*,*rs405509*, *rs1160985* and *rs7412* as predictors
+- **\*\_5SNVs_No_rs429358_CV_Under.py** : Undersampling to balance samples and use of variants *rs769449*, *rs4420638*, *rs405509*, *rs1160985* and *rs7412* as predictors
 
