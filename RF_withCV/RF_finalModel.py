@@ -72,7 +72,7 @@ y=np.where(y=='Control', 0, y)
 y=y.astype('int')
 
 #Shuffle samples to avoid possible bias when sampling
-Xtab, y = shuffle(Xtab, y)
+Xtab, y = shuffle(Xtab, y,random_state=1)
 #Check that the AD and controls are properly assigned after shuffle
 con2=Xtab.iloc[:,1]
 yt=np.where(con2=='AD', 1, con2)
@@ -82,7 +82,7 @@ print(np.array_equal(y, yt))#TRUE!
 
 
 #Get the training and test sets
-X_trtab, X_tetab, y_train, y_test = train_test_split(Xtab, y, test_size=0.2)
+X_trtab, X_tetab, y_train, y_test = train_test_split(Xtab, y, test_size=0.2, random_state=1)
 print ('Train set:', X_trtab.shape,  y_train.shape)#Train set: (1388, 48) (1388, 3)
 print ('Test set:', X_tetab.shape,  y_test.shape)#Test set: (596, 48) (596, 3)
 
