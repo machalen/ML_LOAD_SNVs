@@ -40,6 +40,9 @@ inMtrx = option_dict['inputMtrx']
 inLab = option_dict['inputLabels']
 outDir = option_dict['outputDir']
 
+# inMtrx = '/Users/magda/IIT/AD_ML_WithDisGeNet/ML_matrices/UKB.DisGeNet.LOAD.txt'
+# inLab = '/Users/magda/IIT/AD_ML_WithDisGeNet/ML_matrices/LOAD.samples.txt'
+# outDir = '/Users/magda/IIT/AD_ML_DisGeNet_WithCV/Python_tables/RF'
 #########################################################################
 ###############Load and data in UKB######################################
 
@@ -69,6 +72,7 @@ print(len(cntrli))#75000
 
 ###############################################################################
 #####################Get the best parameters in RF#############################
+np.random.seed(21)
 
 #Use all the dataset as input and balance in the function
 #Make the subset of feature predictors
@@ -79,12 +83,22 @@ con1=labels.iloc[:,1]
 y=np.where(con1=='AD', 1, con1)
 y=np.where(y=='Control', 0, y)
 y=y.astype('int')
-X, y = shuffle(X, y)
+X, y = shuffle(X, y, random_state=1)
 
-X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, stratify=con1, random_state=1)
+X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random_state=1)
 print ('Train set:', X_train.shape,  y_train.shape)#Train set: (1388, 48) (1388, 3)
 print ('Test set:', X_test.shape,  y_test.shape)#Test set: (596, 48) (596, 3)
 
+
+########################################################################################
+a_file = open(os.path.join(outDir, 'RF.APOEvars.ytestVal.txt'), "w")
+np.savetxt(a_file, y_test)
+a_file.close()
+
+a_file = open(os.path.join(outDir, 'RF.APOEvars.ytrainVal.txt'), "w")
+np.savetxt(a_file, y_train)
+a_file.close()
+########################################################################################
 # define the model with default hyperparameters
 model=RandomForestClassifier()
 

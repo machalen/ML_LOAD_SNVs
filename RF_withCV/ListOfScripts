@@ -1,0 +1,13 @@
+total 192
+-rwxrwxrwx@ 1 magda  staff  7714 Dec  4 11:33 RF_5SNVs_No_rs429358_CV_Under.py
+-rwxrwxrwx@ 1 magda  staff  7715 Dec  4 11:33 RF_5SNVs_No_rs4420638_CV_Under.py
+-rwxrwxrwx@ 1 magda  staff  7713 Dec  4 11:33 RF_5SNVs_No_rs769449_CV_Under.py
+-rwxrwxrwx@ 1 magda  staff  7701 Dec  4 11:33 RF_6SNVs_CV_Under.py
+-rwxrwxrwx@ 1 magda  staff  7887 Dec 14 17:16 RF_APOEvars_CV_Under.py
+-rwxr-xr-x@ 1 magda  staff  7618 Dec 14 17:23 RF_APOEvars_finalModel.py
+-rwxrwxrwx@ 1 magda  staff  7515 Dec  4 11:33 RF_DisGeNet_CV_Over.py
+-rwxrwxrwx@ 1 magda  staff  7532 Dec  4 11:33 RF_DisGeNet_CV_Under.py
+-rwxrwxrwx@ 1 magda  staff  7238 Dec  4 11:33 RF_finalModel.py
+-rwxrwxrwx@ 1 magda  staff  7513 Dec  4 11:33 RF_refVars_CV_Over.py
+-rwxrwxrwx@ 1 magda  staff  7520 Dec  4 11:33 RF_refVars_CV_Under.py
+-rwxrwxrwx@ 1 magda  staff  7602 Dec  4 11:33 Sampling_Function.py
