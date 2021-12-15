@@ -7,7 +7,7 @@ import os
 from datetime import datetime
 from sklearn.utils import shuffle
 from Sampling_Function import Cross_Val_Groups
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.model_selection import train_test_split
 #import getopt
 from optparse import OptionParser
@@ -17,7 +17,6 @@ pd.options.mode.chained_assignment = None
 
 ###############################################################################
 ###############################################################################
-
 parser = OptionParser()
 
 parser.add_option('-m', '--inputMtrx', help='Input numeric Matrix in .txt format where columns are predictors and rows are samples', 
@@ -43,14 +42,9 @@ outDir = option_dict['outputDir']
 #########################################################################
 ###############Load and data in UKB######################################
 
-df_all = pd.read_csv(inMtrx, sep="\t")
+df = pd.read_csv(inMtrx, sep="\t")
 #df.head()
-print(df_all.shape)#(75738, 145)
-
-#Select only APOE variants
-Var_TreeSelect=["rs429358","rs7412"]
-df=df_all[Var_TreeSelect]
-print(df.shape)#(87193, 2)
+print(df.shape)#(75738, 145)
 
 labels = pd.read_csv(inLab, sep="\t")
 #labels.head()
@@ -68,7 +62,7 @@ print(len(casei))#738
 print(len(cntrli))#75000
 
 ###############################################################################
-#####################Get the best parameters in RF#############################
+#####################Get the best parameters in ET#############################
 np.random.seed(21)
 
 #Use all the dataset as input and balance in the function
@@ -86,18 +80,8 @@ X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random
 print ('Train set:', X_train.shape,  y_train.shape)#Train set: (1388, 48) (1388, 3)
 print ('Test set:', X_test.shape,  y_test.shape)#Test set: (596, 48) (596, 3)
 
-
-########################################################################################
-# a_file = open(os.path.join(outDir, 'RF.APOEvars.ytestVal.txt'), "w")
-# np.savetxt(a_file, y_test)
-# a_file.close()
-
-# a_file = open(os.path.join(outDir, 'RF.APOEvars.ytrainVal.txt'), "w")
-# np.savetxt(a_file, y_train)
-# a_file.close()
-########################################################################################
 # define the model with default hyperparameters
-model=RandomForestClassifier()
+model=ExtraTreesClassifier()
 
 # define the grid of values to search
 grid = dict()
@@ -171,7 +155,7 @@ fscore_df['ValMean']  = fscore_val_mean
 fscore_df['ValStd']  = fscore_val_std
 fscore_df['TrainMean']  = fscore_train_mean
 fscore_df['TrainStd']  = fscore_train_std
-fscore_df.to_csv(os.path.join(outDir, 'RF.APOEvars.fscore.Under.CV.txt'), index=None, sep='\t')
+fscore_df.to_csv(os.path.join(outDir, 'ET.PureCntrls.fscore.Under.CV.txt'), index=None, sep='\t')
 
 #Check the best metrics
 max_value = max(fscore_val_mean)
@@ -207,7 +191,7 @@ roc_df['ValMean']  = roc_val_mean
 roc_df['ValStd']  = roc_val_std
 roc_df['TrainMean']  = roc_train_mean
 roc_df['TrainStd']  = roc_train_std
-roc_df.to_csv(os.path.join(outDir, 'RF.APOEvars.roc.Under.CV.txt'), index=None, sep='\t')
+roc_df.to_csv(os.path.join(outDir, 'ET.PureCntrls.roc.Under.CV.txt'), index=None, sep='\t')
 
 #Check the best metrics
 max_value = max(roc_val_mean)

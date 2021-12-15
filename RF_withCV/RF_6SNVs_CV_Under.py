@@ -69,6 +69,7 @@ print(len(cntrli))#75000
 
 ###############################################################################
 #####################Get the best parameters in RF#############################
+np.random.seed(21)
 
 #Use all the dataset as input and balance in the function
 #Make the subset of feature predictors
@@ -79,9 +80,9 @@ con1=labels.iloc[:,1]
 y=np.where(con1=='AD', 1, con1)
 y=np.where(y=='Control', 0, y)
 y=y.astype('int')
-X, y = shuffle(X, y)
+X, y = shuffle(X, y, random_state=1)
 
-X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, stratify=con1, random_state=1)
+X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random_state=1)
 print ('Train set:', X_train.shape,  y_train.shape)#Train set: (1388, 48) (1388, 3)
 print ('Test set:', X_test.shape,  y_test.shape)#Test set: (596, 48) (596, 3)
 
